@@ -5,13 +5,13 @@ import glob
 import time
 from datetime import datetime
 
-GPIO.setmode(GPIO.BCM) # GPIO Numbers instead of board numbers
+#GPIO.setmode(GPIO.BCM) # GPIO Numbers instead of board numbers
  
-RELAIS_1_GPIO = 17
-GPIO.setup(RELAIS_1_GPIO, GPIO.OUT) #Relay 4, Heater
+#RELAIS_1_GPIO = 17
+#GPIO.setup(RELAIS_1_GPIO, GPIO.OUT) #Relay 4, Heater
 
-RELAY_3 = 27
-GPIO.setup(RELAY_3, GPIO.OUT) #Relay 3, light
+#RELAY_3 = 27
+#GPIO.setup(RELAY_3, GPIO.OUT) #Relay 3, light
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -43,9 +43,9 @@ def read_temp():
 def control_heater():
     temp = read_temp()
     if float(temp) > 80.0: #if temp higher than 80 turn off heater
-        GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # heater off
+        #GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # heater off
     else: #heater off
-        GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # heater on
+        #GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # heater on
 	print(temp)
 
 def control_light():
