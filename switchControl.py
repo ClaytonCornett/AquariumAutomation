@@ -35,6 +35,10 @@ lightOff = True
 heaterOn = False
 heaterOff = True
 
+tempCheck1 = False
+tempCheck2 = False
+tempCheck3 = False
+
 def read_temp_raw():    #Reads raw data for sensor
     f = open(device_file, 'r')
     lines = f.readlines()
@@ -62,7 +66,12 @@ def control_heater():
     global heaterOn
     global heaterOff
 
+    global tempCheck1
+    global tempCheck2
+    global tempCheck3
+
     if int(hour) == 10 or int(hour) == 16 or int(hour) == 22:
+	
         print("Temperature: ",temp, "F at ", heater_time)
     
     if float(temp) > 80.0 and heaterOn == True: #if temp higher than 80 turn off heater
@@ -82,6 +91,8 @@ def control_light():    #Controls light based on time of day
     light_time = time.strftime("%m/%d/%Y at %H:%M:%S", t)
     hour = time.strftime("%H", t)
     #minute = time.strftime("%M", t)
+    global lightOff
+    global lightOn
 
     if int(hour) == 10 and lightOff == True:
         GPIO.output(RELAY_3, GPIO.LOW) # turns light on at 10am
