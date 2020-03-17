@@ -46,7 +46,7 @@ def control_heater():
         GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # heater off
     else: #heater off
         GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # heater on
-	#print(temp)
+	print(temp)
 
 def control_light():
     now = datetime.now()
