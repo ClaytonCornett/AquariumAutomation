@@ -4,6 +4,8 @@ import os
 import glob
 import time
 
+time.sleep(2)
+
 GPIO.setmode(GPIO.BCM) # GPIO Numbers instead of board numbers
  
 RELAIS_1_GPIO = 17
@@ -79,7 +81,7 @@ def control_light():    #Controls light based on time of day
         print("---------------------------------------------")
         print("Light On: ", light_time)
 
-    if int(hour) == 22 and lightOn == True:
+    if int(hour) == 22:
         GPIO.output(RELAY_3, GPIO.HIGH) #turns off light at 10pm
         lightOff = True
         lightOn = False
@@ -116,10 +118,10 @@ try:
         control_noncustom_feeder()
         time.sleep(1)
 
-except KeyboardInterrupt:
+#except KeyboardInterrupt:
     print("Keyboard Interrupt ended script")
 
-except:
+#except:
     print("Other exception occured")
 
 finally:
