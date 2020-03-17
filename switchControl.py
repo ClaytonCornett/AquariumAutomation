@@ -93,7 +93,7 @@ def control_noncustom_feeder():
     t = time.localtime()
     feeder_time = time.strftime("%m/%d/%Y at %H:%M:%S", t)
     hour = time.strftime("%H", t)
-    if nonCustomFeederOn is False and nonCustomFeederNeeded is True:
+    if nonCustomFeederOn == False and nonCustomFeederNeeded is True:
         if int(hour) == 11: #Only turns on feeder at 11 in order to keep track
             nonCustomFeederOn = True
             GPIO.output(RELAY_2, GPIO.LOW)
