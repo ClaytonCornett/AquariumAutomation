@@ -42,11 +42,11 @@ def read_temp():
 
 def control_heater():
     temp = read_temp()
-    if float(temp) > 80.0: #if temp higher than 80 turn off heater
+#    if float(temp) > 80.0: #if temp higher than 80 turn off heater
         #GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # heater off
-    else: #heater off
+ #   else: #heater off
         #GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # heater on
-	print(temp)
+    print(temp)
 
 def control_light():
     now = datetime.now()
