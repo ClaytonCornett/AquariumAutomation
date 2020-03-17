@@ -32,6 +32,9 @@ device_file = device_folder + '/w1_slave'
 lightOn = False
 lightOff = True
 
+heaterOn = False
+heaterOff = True
+
 def read_temp_raw():    #Reads raw data for sensor
     f = open(device_file, 'r')
     lines = f.readlines()
@@ -56,16 +59,22 @@ def control_heater():
     heater_time = time.strftime("%m/%d/%Y at %H:%M:%S", t)
     hour = time.strftime("%H", t)
     temp = read_temp()
+    global heaterOn
+    global heaterOff
 
     if int(hour) == 10 or int(hour) == 16 or int(hour) == 22:
         print("Temperature: ",temp, "F at ", heater_time)
     
-    if float(temp) > 80.0: #if temp higher than 80 turn off heater
+    if float(temp) > 80.0 and heaterOn == True: #if temp higher than 80 turn off heater
         GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # heater off
         print("Heater Off: ", heater_time)
-    else: #heater off
+	heaterOn = False
+	heaterOff = True
+    if float(temp) < 80.0 and heaterOff == True: 
         GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # heater on
         print("Heater On: ", heater_time)
+	heaterOn = True
+	heaterOff = False
 	#print(temp)
 
 def control_light():    #Controls light based on time of day
@@ -93,13 +102,16 @@ def control_noncustom_feeder():
     t = time.localtime()
     feeder_time = time.strftime("%m/%d/%Y at %H:%M:%S", t)
     hour = time.strftime("%H", t)
-    if nonCustomFeederOn == False and nonCustomFeederNeeded is True:
+    global nonCustomFeederOn
+    global nonCustomFeederNeeded
+    global mealDaysRemaining
+    if nonCustomFeederOn == False and nonCustomFeederNeeded == True:
         if int(hour) == 11: #Only turns on feeder at 11 in order to keep track
             nonCustomFeederOn = True
             GPIO.output(RELAY_2, GPIO.LOW)
             print("Non Custom Feeder On: ", feeder_time)
 
-    if nonCustomFeederOn is True and nonCustomFeederNeeded is True:
+    if nonCustomFeederOn == True and nonCustomFeederNeeded == True:
         if int(hour) == 11:
             print("Non Custom Feeder morning: ", feeder_time)
         if int(hour) == 20:
@@ -118,10 +130,10 @@ try:
         control_noncustom_feeder()
         time.sleep(1)
 
-#except KeyboardInterrupt:
+except KeyboardInterrupt:
     print("Keyboard Interrupt ended script")
 
-#except:
+except:
     print("Other exception occured")
 
 finally:
