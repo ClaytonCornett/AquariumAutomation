@@ -10,9 +10,11 @@ GPIO.setmode(GPIO.BCM) # GPIO Numbers instead of board numbers
  
 RELAIS_1_GPIO = 17
 GPIO.setup(RELAIS_1_GPIO, GPIO.OUT) #Relay 4, Heater
+GPIO.setup(RELAIS_1_GPIO, GPIO.LOW) #starts heater on
 
 RELAY_3 = 27
 GPIO.setup(RELAY_3, GPIO.OUT) #Relay 3, light
+GPIO.output(RELAY_3, GPIO.LOW) #Starts light on
 
 RELAY_2 = 22
 GPIO.setup(RELAY_2, GPIO.OUT) #Relay 2, Non custom feeder
