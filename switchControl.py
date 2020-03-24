@@ -85,6 +85,11 @@ def control_heater():
 	print("Temperature: ",temp, "F at ", heater_time)
 	tempCheck3 = True
     
+    if int(hour) == 23:
+        tempCheck1 = False
+        tempCheck2 = False
+        tempCheck3 = False
+    
     
     if float(temp) > 80.0 and heaterOn == True: #if temp higher than 80 turn off heater
         GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # heater off
@@ -106,10 +111,6 @@ def control_light():    #Controls light based on time of day
     global lightOff
     global lightOn
 
-    global tempCheck1
-    global tempCheck2
-    global tempCheck3
-
     if int(hour) == 10 and lightOff == True:
         GPIO.output(RELAY_3, GPIO.LOW) # turns light on at 10am
         lightOn = True
@@ -117,13 +118,10 @@ def control_light():    #Controls light based on time of day
         print("---------------------------------------------")
         print("Light On: ", light_time)
 
-    if int(hour) == 22:
+    if int(hour) == 22 and lightOn == True:
         GPIO.output(RELAY_3, GPIO.HIGH) #turns off light at 10pm
         lightOff = True
         lightOn = False
-        tempCheck1 = False
-        tempCheck2 = False
-        tempCheck3 = False
         print("Non Custom Feeder Meal Days Remaining: ", mealDaysRemaining)
         print("Light Off: ", light_time)
         print("---------------------------------------------")
