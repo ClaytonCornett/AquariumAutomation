@@ -91,12 +91,12 @@ def control_heater():
         tempCheck3 = False
     
     
-    if float(temp) > 80.0 and heaterOn == True: #if temp higher than 80 turn off heater
+    if float(temp) > 75.0 and heaterOn == True: #if temp higher than 80 turn off heater
         GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # heater off
         print("Heater Off: ", heater_time)
 	heaterOn = False
 	heaterOff = True
-    if float(temp) < 80.0 and heaterOff == True: 
+    if float(temp) < 75.0 and heaterOff == True: 
         GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # heater on
         print("Heater On: ", heater_time)
 	heaterOn = True
@@ -160,9 +160,9 @@ try:
     GPIO.output(22, GPIO.HIGH)
     time.sleep(1)
     GPIO.output(27, GPIO.HIGH)
-    GPIO.output(27, GPIO.LOW)
-    print("Inital Light turn on")
-    time.sleep(10)
+    #GPIO.output(27, GPIO.LOW)
+    #print("Inital Light turn on")
+    time.sleep(1)
     while True:
         control_light()
         control_heater()
