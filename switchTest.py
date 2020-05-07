@@ -26,23 +26,23 @@ nonCustomFeederOn = False
 
 try:
     while True:
-        time.sleep(3)
-        GPIO.output(17, GPIO.LOW)
-	print("17 Low")
+        #time.sleep(3)
+        #GPIO.output(17, GPIO.LOW)
+	#print("17 Low")
         time.sleep(3)
         GPIO.output(17, GPIO.HIGH)
 	print("17 High")
         
-        time.sleep(3)
-        GPIO.output(27, GPIO.LOW)
-	print("27 Low")
+        #time.sleep(3)
+        #GPIO.output(27, GPIO.LOW)
+	#print("27 Low")
         time.sleep(3)
         GPIO.output(27, GPIO.HIGH)
 	print("27 High")
         
-        time.sleep(3)
-        GPIO.output(22, GPIO.LOW)
-	print("22 Low")
+        #time.sleep(3)
+        #GPIO.output(22, GPIO.LOW)
+	#print("22 Low")
         time.sleep(3)
         GPIO.output(22, GPIO.HIGH)
 	print("22 High")
