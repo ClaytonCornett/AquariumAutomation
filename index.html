@@ -17,24 +17,12 @@
                 document.getElementById("test").innerHTML = myObj.temp;
                 }
             };
-            xmlhttp.open("GET", "data.txt", true);
+            xmlhttp.open("GET", "aqData.json", true);
             xmlhttp.send();
         </script>
 	   
     	<div id="test"></div>
 
-    	
-        <script type="text/javascript">
-            
-            var obj = {"temp":"0","lightsOn":"0","heaterOn":"0","feederOn":"0"};
-
-            var jobj = JSON.stringify(obj);
-
-            var pobj = JSON.parse(jobj);
-            document.getElementById("test2").innerHTML = pobj.temp;
-
-        </script>
-        <div id="test2"></div>
     </body>
 
 
