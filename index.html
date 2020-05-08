@@ -3,18 +3,25 @@
         <title>Aquarium</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="web.js">
-        <script type="text/javascript">
-        	$(document).ready(function(){
- 				setInterval(fetchdata,5000);
-			});
-        </script>
     </head>
     
     
     <body>
     
         <p>Aquarium Automation</p>
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                var myObj = JSON.parse(this.responseText);
+                document.getElementById("test").innerHTML = myObj.aquarium;
+                }
+            };
+            xmlhttp.open("GET", "data.txt", true);
+            xmlhttp.send();
+        </script>
     	<div id="test"></div>
+    	
     </body>
 
 
