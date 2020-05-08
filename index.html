@@ -16,9 +16,10 @@
                     if (this.readyState == 4 && this.status == 200) {
                             
                             
-                    };
+                    }
                 xmlhttp.open("GET", "lightsOff.php", true);
                 xmlhttp.send();
+                };
 
             }
 
@@ -28,11 +29,11 @@
                     if (this.readyState == 4 && this.status == 200) {
                             
                             
-                    };
+                    }
                 xmlhttp.open("GET", "lightsOn.php", true);
                 xmlhttp.send();
 
-            }
+            };
 
             function heaterOff() {
                 var xmlhttp = new XMLHttpRequest();
@@ -40,9 +41,11 @@
                     if (this.readyState == 4 && this.status == 200) {
                             
                             
-                    };
+                    }
                 xmlhttp.open("GET", "heaterOff.php", true);
                 xmlhttp.send();
+                };
+            }
 
             }
 
@@ -52,9 +55,10 @@
                     if (this.readyState == 4 && this.status == 200) {
                             
                             
-                    };
+                    }
                 xmlhttp.open("GET", "heaterOn.php", true);
                 xmlhttp.send();
+                };
 
             }
 
@@ -64,9 +68,10 @@
                     if (this.readyState == 4 && this.status == 200) {
                             
                             
-                    };
+                    }
                 xmlhttp.open("GET", "feederOn.php", true);
                 xmlhttp.send();
+                };
             }
 
             function feederOff() {
@@ -75,9 +80,10 @@
                     if (this.readyState == 4 && this.status == 200) {
                             
                             
-                    };
+                    }
                 xmlhttp.open("GET", "feederOff.php", true);
                 xmlhttp.send();
+                };
 
             }
 
@@ -117,7 +123,7 @@
             xmlhttp.open("GET", "aqData.json", true);
             xmlhttp.send();
 
-            }
+            
         </script>
 	   
     	<div id="test"></div>
