@@ -88,8 +88,9 @@
             }
 
 
-            
-            var xmlhttp = new XMLHttpRequest();
+
+            function fetchdata() {
+                var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                 var myObj = JSON.parse(this.responseText);
@@ -122,8 +123,14 @@
             };
             xmlhttp.open("GET", "aqData.json", true);
             xmlhttp.send();
-
+            }
             
+            
+
+
+            $(document).ready(function(){
+                setInterval(fetchdata,1000);
+            });
         </script>
 	   
     	<div id="test"></div>
