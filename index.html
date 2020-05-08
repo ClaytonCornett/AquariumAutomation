@@ -14,7 +14,31 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                 var myObj = JSON.parse(this.responseText);
-                document.getElementById("test").innerHTML = myObj.temp;
+                var textString = "";
+                textString += "Temp: " + myObj.temp + "<br>";
+                
+                if (myObj.lightOn == 1) {
+                    textString += "Light: On <br>";
+                }
+                else{
+                    textString += "Light: Off <br>";
+                }
+
+                if (myObj.heaterOn == 1) {
+                    textString += "Heater: On <br>";
+                }
+                else{
+                    textString += "Heater: Off <br>";
+                }
+
+                if (myObj.feederOn == 1) {
+                    textString += "Feeder: On <br>";
+                }
+                else{
+                    textString += "Feeder: Off <br>";
+                }
+
+                document.getElementById("test").innerHTML = textString;
                 }
             };
             xmlhttp.open("GET", "aqData.json", true);
