@@ -18,24 +18,24 @@
                 textString += "Temp: " + myObj.temp + "<br>";
                 
                 if (myObj.lightOn == 1) {
-                    textString += "Light: On <br>";
+                    textString += "Light: On <button onclick='lightsOff()'>Turn Off</button><br>";
                 }
                 else{
-                    textString += "Light: Off <br>";
+                    textString += "Light: Off <button onclick='lightsOn()'>Turn On</button><br>";
                 }
 
                 if (myObj.heaterOn == 1) {
-                    textString += "Heater: On <br>";
+                    textString += "Heater: On <button onclick='heaterOff()'>Turn Off</button><br>";
                 }
                 else{
-                    textString += "Heater: Off <br>";
+                    textString += "Heater: Off <button onclick='heaterOn()'>Turn On</button><br>";
                 }
 
                 if (myObj.feederOn == 1) {
-                    textString += "Feeder: On <br>";
+                    textString += "Feeder: On <button onclick='feederOff()'>Turn Off</button><br>";
                 }
                 else{
-                    textString += "Feeder: Off <br>";
+                    textString += "Feeder: Off <button onclick='feederOn()'>Turn On</button><br>";
                 }
 
                 document.getElementById("test").innerHTML = textString;

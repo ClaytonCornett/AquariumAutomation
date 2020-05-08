@@ -1,23 +1,71 @@
-var temp = "";
-var lightsOn = "";
-var heaterOn = "";
-var feederOn = "";
+function lightsOff() {
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                
+                
+        };
+    xmlhttp.open("GET", "lightsOff.php", true);
+    xmlhttp.send();
 
-	var request = new XMLHttpRequest();
+}
 
-	request.open('GET', "data.json");
-	request.onload = function(){
-		var data = JSON.parse(request.responseText);
-		temp = data["aquarium"][0];
-		console.log(temp)
-		lightsOn = data["aquarium"][1];
-		console.log(lightsOn)
-		heaterOn = data["aquarium"][2];
-		console.log(heaterOn)
-		feederOn = data["aquarium"][3];
-		console.log(feederOn)
-		document.getElementById('test').innerHTML = 
-		"Temp: " +  lightsOn;
-		console.log("at the end")
-	}
+function lightsOn() {
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                
+                
+        };
+    xmlhttp.open("GET", "lightsOn.php", true);
+    xmlhttp.send();
 
+}
+
+function heaterOff() {
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                
+                
+        };
+    xmlhttp.open("GET", "heaterOff.php", true);
+    xmlhttp.send();
+
+}
+
+function heaterOn() {
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                
+                
+        };
+    xmlhttp.open("GET", "heaterOn.php", true);
+    xmlhttp.send();
+
+}
+
+function feederOn() {
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                
+                
+        };
+    xmlhttp.open("GET", "feederOn.php", true);
+    xmlhttp.send();
+
+
+function feederOff() {
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                
+                
+        };
+    xmlhttp.open("GET", "feederOff.php", true);
+    xmlhttp.send();
+
+}
+}
