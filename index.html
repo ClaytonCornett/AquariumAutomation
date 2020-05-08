@@ -14,7 +14,7 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                 var myObj = JSON.parse(this.responseText);
-                document.getElementById("test").innerHTML = myObj.aquarium;
+                document.getElementById("test").innerHTML = myObj.temp;
                 }
             };
             xmlhttp.open("GET", "data.txt", true);
