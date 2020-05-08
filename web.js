@@ -55,7 +55,7 @@ function feederOn() {
         };
     xmlhttp.open("GET", "feederOn.php", true);
     xmlhttp.send();
-
+}
 
 function feederOff() {
 	var xmlhttp = new XMLHttpRequest();
@@ -67,5 +67,4 @@ function feederOff() {
     xmlhttp.open("GET", "feederOff.php", true);
     xmlhttp.send();
 
-}
 }
