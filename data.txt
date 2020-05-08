@@ -1,1 +1,1 @@
-{"temp": "0", "lightsOn": "0", "heaterOn": "0", "feederOn": "0"}
+{"temp":"0","lightsOn":"0","heaterOn":"0","feederOn":"0"}
